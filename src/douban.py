@@ -10,6 +10,8 @@ from tools.get_data_from_html import get_img_src_from_html
 ssl._create_default_https_context = ssl._create_unverified_context
 timeout = 2
 
+
+
 # headers信息fannyco
 headers = {'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
        'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
