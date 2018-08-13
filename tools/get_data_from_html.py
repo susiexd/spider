@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import os
-import urllib
+from urllib.request import urlretrieve
 import requests
 
 # 解析html，获取验证码的图片链接
@@ -28,16 +28,9 @@ def save_img(img_url,file_name, file_path):
         # 拼接图片名（包含路径）
         filename = '{}{}{}{}'.format(file_path, os.sep, file_name, file_suffix)
         # 下载图片，并保存到文件夹中
-        # urllib.urlretrieve(img_url, filename=filename)
-        r = requests.get(img_url)
-        r.raise_for_status()
-        with open(file_path,"wb") as f:
-            f.write(r.content)
+        urlretrieve(img_url, filename=filename,)
     except IOError as e:
-        print('Operation failed ',e)
-    except Exception as e:
-        print('Error ：', e)
-
+        print('Operation failed ' + str(e))
 
 html1 = """
 <!DOCTYPE HTML>
@@ -2335,5 +2328,5 @@ if (window.addEventListener) {
 
 img_url = "https://upload-images.jianshu.io/upload_images/4131789-a485e499d0427baf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700"
 file_name = "test.jpg"
-file_path = "/spider/img"
-save_img(img_url,file_name,file_path)
+file_path_mac = "../img/"
+save_img(img_url,file_name,file_path_mac)

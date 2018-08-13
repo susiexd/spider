@@ -18,7 +18,7 @@ headers = {'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,imag
        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36'
        }
 # POST请求的信息，填写你的用户名和密码
-value = {'source': 'index_nav','form_password': 'test','form_email': 'fannyco@163.com'}
+value = {'source': 'index_nav','form_password': '***','form_email': 'fannyco@163.com'}
 
 #测试是否需要验证码
 
@@ -28,7 +28,7 @@ response = urllib.request.urlopen(request)
 result = response.read().decode('utf8')
 src = get_img_src_from_html(result) #如果有验证码，下载图片并识别
 if(src.replace(' ','')!=''):
-    urllib.urlretrive(src, )
+    print("**********"+src)
 
 
 # 登录操作
